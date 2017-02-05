@@ -25,4 +25,7 @@ def WeChat(request):
     return HttpResponse(
       request.GET.get('echostr', ''), content_type="text/plain")
 
-
+def emma(request):
+  
+  html = "<html><body><h1>Hello Emma</h1><h2>I love you!</h2></body></html>"
+  return HttpResponse(html)
