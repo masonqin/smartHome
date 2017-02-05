@@ -9,28 +9,20 @@ from xml.etree import ElementTree as ET
 import time
 import hashlib
 
-
-  # @csrf_exempt
-  # def dispatch(self, *args, **kwargs):
-  #   return super(WeChat, self).dispatch(*args, **kwargs)
     
 def WeChat(request):
-  
-  # signature = request.GET.get('signature', None)
-  # timestamp = request.GET.get('timestamp', None)
-  # nonce = request.GET.get('nonce', None)
-  # echostr = request.GET.get('echostr', None)
+  if request.method == 'GET':
+    # 检验合法性
+    # 从 request 中提取基本信息 (signature, timestamp, nonce, xml)
+    signature = request.GET.get('signature')
+    timestamp = request.GET.get('timestamp')
+    nonce = request.GET.get('nonce')
 
-  # token = 'xiaochengqin'
+    if not wechat_instance.check_signature(
+      signature=signature, timestamp=timestamp, nonce=nonce):
+      return HttpResponseBadRequest('Verify Failed')
 
-  # hashlist = [token, timestamp, nonce]
-  # hashlist.sort() 
-
-  # hashstr = ''.join([s for s in hashlist])
-  # hashstr = hashlib.sha1(hashstr).hexdigest()
-  #tests
-  # if hashstr == signature:
-  html = "<html><body><h1>Hello Emma</h1><h2>I love you!</h2></body></html>"
-  return HttpResponse(html)
+    return HttpResponse(
+      request.GET.get('echostr', ''), content_type="text/plain")
 
 
