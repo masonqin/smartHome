@@ -28,7 +28,7 @@ def WeChat(request):
 
   # hashstr = ''.join([s for s in hashlist])
   # hashstr = hashlib.sha1(hashstr).hexdigest()
-
+  #tests
   # if hashstr == signature:
   html = "<html><body><h1>Hello Emma</h1><h2>I love you!</h2></body></html>"
   return HttpResponse(html)
