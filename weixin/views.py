@@ -27,7 +27,6 @@ def WeChat(request):
   # hashlist.sort() 
 
   # hashstr = ''.join([s for s in hashlist])
-
   # hashstr = hashlib.sha1(hashstr).hexdigest()
 
   # if hashstr == signature:
