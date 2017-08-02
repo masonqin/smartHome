@@ -25,7 +25,7 @@ SECRET_KEY = '^c(v#i@6q)z7er_+(9!f5q-x4#h0-^ghnygdhe%v_1jxvk(seu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [u'192.168.31.201',u'mason.imwork.net']
+ALLOWED_HOSTS = [u'192.168.31.201',u'mason.imwork.net',u'mason.iask.in']
 
 
 # Application definition

@@ -12,8 +12,6 @@ import hashlib
     
 def WeChat(request):
   if request.method == 'GET':
-    # 检验合法性
-    # 从 request 中提取基本信息 (signature, timestamp, nonce, xml)
     signature = request.GET.get('signature')
     timestamp = request.GET.get('timestamp')
     nonce = request.GET.get('nonce')
@@ -25,7 +23,6 @@ def WeChat(request):
     return HttpResponse(
       request.GET.get('echostr', ''), content_type="text/plain")
 
-def emma(request):
-  
+def Emma(request):
   html = "<html><body><h1>Hello Emma</h1><h2>I love you!</h2></body></html>"
   return HttpResponse(html)

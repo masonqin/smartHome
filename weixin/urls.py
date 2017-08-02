@@ -1,7 +1,8 @@
 from django.conf.urls import include, url
 from .views import WeChat
+from .views import Emma
 
 urlpatterns = [
-    url(r'^weixin/', WeChat),
-    url(r'^emma/', emma),
+    url(r'^$', WeChat),
+    url(r'^emma/', Emma),
 ]
