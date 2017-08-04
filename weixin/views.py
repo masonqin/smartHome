@@ -8,6 +8,7 @@ from django.template import loader, Context
 from xml.etree import ElementTree as ET
 import time
 import hashlib
+import ServerHelper
 
     
 def WeChat(request):
@@ -30,10 +31,13 @@ def Emma(request):
 def Server(request):
 
   command = request.GET.get('cmd')
+  ret = "command error"
   if command == "serveron":
+    ServerHelper.WOL('D050995C9BC8')
     ret = "server is on"
 
   if command == "serveroff":
+    ServerHelper.ShutDown()
     ret = "server is off"
 
   return HttpResponse(ret)
