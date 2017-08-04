@@ -29,3 +29,14 @@ def emma(request):
   
   html = "<html><body><h1>Hello Emma</h1><h2>I love you!</h2></body></html>"
   return HttpResponse(html)
+
+def server(request):
+
+  command = request.GET.get('cmd')
+  if command == "serveron":
+    ret = "server is on"
+
+  if command == "serveroff":
+    ret = "server is off"
+
+  return HttpResponse(ret)
